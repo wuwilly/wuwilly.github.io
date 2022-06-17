@@ -58,6 +58,8 @@ $ sudo apt-get install samba-y
 $ sudo systemctl start nmbd
 $ sudo systemctl start smbd
 ```
+![100](https://user-images.githubusercontent.com/106864322/174216782-c5a952ce-e678-4b49-b042-386734a32e9c.png)
+
 * 為了讓所有人都能登入samba伺服器，我們要調整samba伺服器的設定值，設定檔為/etc/samba/smb.conf
 ```
 $ nano /etc/samba/smb.conf
@@ -69,6 +71,8 @@ $ nano /etc/samba/smb.conf
 security = user          　　　　　←　加入此行，設為user等級
 map to guest = Bad user　　　　　　←　加入此行，設為任何人都能登入samba伺服器存取資源
 ```
+![101](https://user-images.githubusercontent.com/106864322/174216828-31e5896b-1bfc-47ac-89a3-44c2ed8b593d.png)
+
 * 重新啟動samba
 ```
 $ sudo service nmbd restart
@@ -97,6 +101,7 @@ $ sudo service nmbd restart
 $ sudo service smbd restart
 ```
 ##即可在資料夾→網路→fcsmb看到所分享的唯讀目錄。
+![103](https://user-images.githubusercontent.com/106864322/174216878-01949e49-4ece-4f04-9047-c022d8660291.png)
 
 分歧2，分享唯讀目錄
 --------------------
@@ -111,6 +116,8 @@ path = /data       　　　　　　　 ←　分享目錄的所在路徑
 guest ok = yes　　　　　　　　　　←　允許匿名存取
 writable = yes                  ←　允許寫入
 ```
+![102](https://user-images.githubusercontent.com/106864322/174216854-ed107eeb-e2c5-4fe9-bef8-0cab5ab3f25f.png)
+
 * 設定好後，執行以下指令，以建立一分享目錄
 ```
 $ sudo mkdir /upload　　　　　←建立一個名為upload的分享目錄
